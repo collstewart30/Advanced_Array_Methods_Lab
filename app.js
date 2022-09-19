@@ -124,23 +124,113 @@ console.log("Mexican Foods: ", mexicanFood);
 //1. Create a function that will return all dishes with the cuisine type of "vegetarian"
 //Filter
 
+function findVegetarianFood() {
+  let vegetarianFood = dishes.filter(
+    function (dish){
+      if (dish.cuisine === "Vegetarian"){
+        return true;
+      } else {
+        return false;
+      }
+    }
+  );
+  return vegetarianFood;
+}
+
+let vegetarianDish = findVegetarianFood();
+console.log("Vegetarian options: ", vegetarianDish);
+
 //2. Create a function that will return all dishes with the cuisine type of "Italian" and a serving size greater than 5.
 //Filter
+
+function findItalianFood() {
+  let italianFood = dishes.filter(
+    function (dish){
+      if (dish.cuisine === "Italian" && dish.servings > 5){
+        return true;
+      } else {
+        return false;
+      }
+    }
+  );
+  return italianFood;
+}
+
+let italianDish = findItalianFood();
+console.log("Italian options: ", italianDish);
 
 //3. Create a function that will return only dishes whose serving id number matches their serving count.
 //Filter
 
+function servingIdCount() {
+  let equalServingIdCount = dishes.filter(
+    function (dish){
+      if(dish.id === dish.servings){
+        return true;
+      } else {
+        return false;
+      }
+    }
+  );
+  return equalServingIdCount;
+}
+
+let countIdServing = servingIdCount();
+console.log("id number equal to servings: ", countIdServing);
+
 //4. Create a function that will return only dishes whose serving count is even.
 //Filter
+
+function evenServingCount(){
+  let servingCount = dishes.filter(
+    function(dish){
+      if(dish.servings % 2 === 0){
+        return true;
+      } else {
+        return false;
+      }
+    }
+  );
+  return servingCount;
+}
+
+let evenCount = evenServingCount();
+console.log("Serving count even: ", evenCount);
 
 //5. Create a function that will return dishes whose ingredients array is "tomato" and "cheese".
 //Filter
 
+function findTomatoCheese(){
+  let ingredientsTomChe = dishes.filter(
+    function(dishes){
+      if(dishes.ingredients.includes("tomato") && dishes.ingredients.includes("cheese")){
+        return true;
+      } else {
+        return false;
+      }
+    }
+  );
+  return ingredientsTomChe;
+}
+
+let tomatoCheese = findTomatoCheese();
+console.log("Tomato and cheese: ", tomatoCheese);
+
 //6a. Create a function that will return an array of only the names of the cuisine types. Ie ['Italian', 'Mexican', ...]
 //Map
 
+let nameCuisineType = dishes.map(
+  function (dish){
+    return (dish.cuisine)
+  }
+);
+
+console.log(nameCuisineType);
+
 // BONUS: (come back to this after finishing all)
 //6b. Use the filter method to eliminate duplicates, leaving only distinct values in the array
+
+
 
 //7. Create a function that will append the cuisine type to the start of the dish's name. Ie, "Italian Pizza"
 //Map
