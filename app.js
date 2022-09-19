@@ -235,15 +235,74 @@ console.log(nameCuisineType);
 //7. Create a function that will append the cuisine type to the start of the dish's name. Ie, "Italian Pizza"
 //Map
 
+let nameDishCuisine = dishes.map(
+  function (dish){
+    return (`${dish.cuisine} ${dish.name}`)
+  }
+);
+
+console.log(nameDishCuisine);
+
 //8. Create a function that will append the cuisine type to the start of the dish's name. Then, return only the Vegetarian dish objects. So this function should return objects 11-13 with their names changed to "Vegetarian Lasagna", "Vegetarian Falafel", "Vegetarian Chili"
 //Map, Filter
+
+let nameVegetarianCuisine = dishes.filter(
+  function(dish){
+    if(dish.cuisine === "Vegetarian"){
+      return true;
+    }
+  }
+).map(
+  function (dish){
+    return (`${dish.cuisine} ${dish.name}`)
+  }
+);
+
+console.log(nameVegetarianCuisine);
 
 // <<<<<<<<<<<<<<<<< BONUS <<<<<<<<<<<<<<<<<
 //9. Create a function that will return dishes whose ingredients array INCLUDES "chickpea".
 //Hint: You do not want to check the array's indexes to find out what the array INCLUDES.
 //Filter
 
+function findChickpea(){
+  let ingredientsChickpea = dishes.filter(
+    function(dishes){
+      if(dishes.ingredients.includes("chickpea")){
+        return true;
+      } else {
+        return false;
+      }
+    }
+  );
+  return ingredientsChickpea;
+}
+
+let includesChickpea = findChickpea();
+console.log(includesChickpea);
+
+
 //10. Create a function that will return the total serving count of all dishes.
 //Must use Reduce, not a loop.
+
+// If no initial value is provided, reduce() calls the callback function on each element in the array after the first element.
+// Reduce will take an Array of numbers and reduce them to a single value
+// Returns a single value, a number
+
+// let numbers = [1,2,3,4,5,6,7,8,9,10];
+
+// let numbersTool = numbers.reduce((total, el) => {
+//   return el + total;
+// }, 0)
+
+// console.log(numbersTool);
+
+function totalServings(){
+  let totalServingCount = dishes.servings.reduce((total, el) => {
+    return total + el;
+  }, 0)
+};
+
+console.log(totalServings(dishes));
 
 //11. Create a function that will return an array of any objects that do not share a cuisine type with any other objects.
