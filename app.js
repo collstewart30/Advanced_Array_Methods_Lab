@@ -298,11 +298,12 @@ console.log(includesChickpea);
 // console.log(numbersTool);
 
 function totalServings(){
-  let totalServingCount = dishes.servings.reduce((total, el) => {
-    return total + el;
+  let totalServingCount = dishes.reduce((total, dish) => {
+    return total + dish.servings;
   }, 0)
+  return totalServingCount
 };
 
-console.log(totalServings(dishes));
+console.log(totalServings());
 
 //11. Create a function that will return an array of any objects that do not share a cuisine type with any other objects.
